@@ -157,15 +157,3 @@ if uploaded_file is not None:
         #plt.xticks(rotation='vertical')
         plt.grid(visible=None)
         st.pyplot(fig)
-
-        # Emoji Analysis
-
-        emoji_df = stats.getemojistats(selected_user, df)
-        emoji_df.columns = ['Emoji', 'Count']
-
-        st.subheader("Emoji Analysis")
-
-        emojicount = list(emoji_df['Count'])
-        perlist = [(i/sum(emojicount))*100 for i in emojicount]
-        emoji_df['Percentage use'] = np.array(perlist)
-        st.dataframe(emoji_df)
